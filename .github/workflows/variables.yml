@@ -1,0 +1,32 @@
+name: Variables Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your name"
+        required: true
+        default: "stranger"
+
+env:
+  WORKFLOW_VAR: "I am a workflow level variable"
+
+jobs:
+  display-variables:
+    runs-on: ubuntu-latest
+
+    env:
+      JOB_VAR: "I am a job level variable"
+
+    steps:
+      - name: Show all variables
+        env:
+          STEP_VAR: "I am a step level variable"
+        run: |
+          echo "1) Env variable: $WORKFLOW_VAR"
+          echo "2) Job variable: $JOB_VAR"
+          echo "3) Step variable: $STEP_VAR"
+          echo "4) GitHub context - who triggered: ${{ github.actor }}"
+          echo "4) GitHub context - branch: ${{ github.ref }}"
+          echo "4) GitHub context - commit: ${{ github.sha }}"
+          echo "5) Manual input - username: ${{ inputs.username }}"
