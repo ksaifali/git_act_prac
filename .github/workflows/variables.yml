@@ -30,3 +30,6 @@ jobs:
           echo "4) GitHub context - branch: ${{ github.ref }}"
           echo "4) GitHub context - commit: ${{ github.sha }}"
           echo "5) Manual input - username: ${{ inputs.username }}"
+      - name: Show config variable
+        run: echo "Config variable: ${{ vars.APP_NAME }}"
+
