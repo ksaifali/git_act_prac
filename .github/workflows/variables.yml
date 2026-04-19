@@ -13,7 +13,7 @@ env:
 
 jobs:
   display-variables:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     env:
       JOB_VAR: "I am a job level variable"
