@@ -1,0 +1,10 @@
+name: Caller Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-reusable:
+    uses: ksaifali/git_act_prac/.github/workflows/reusable.yml@master
+    with:
+      environment: "production"

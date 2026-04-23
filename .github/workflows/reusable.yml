@@ -1,0 +1,22 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "Environment to deploy to"
+        required: true
+        type: string
+
+jobs:
+  reusable-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print environment
+        run: echo "Deploying to environment: ${{ inputs.environment }}"
+
+      - name: Run tests
+        run: |
+          echo "Running tests for ${{ inputs.environment }}"
+          echo "Tests passed!"
