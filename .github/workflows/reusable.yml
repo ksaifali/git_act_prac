@@ -14,7 +14,8 @@ jobs:
 
     steps:
       - name: Print environment
-        run: echo "Deploying to environment: ${{ inputs.environment }}"
+        run: |
+          echo "Deploying to environment: ${{ inputs.environment }}"
 
       - name: Run tests
         run: |
